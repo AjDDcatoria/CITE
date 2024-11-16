@@ -15,7 +15,6 @@ class UserService
 
     public function createUser(array $user): void
     {
-        dd($user);
         $this->user->create($user);
     }
 }

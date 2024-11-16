@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('number')->unique();
             $table->string('course');
             $table->string('campus');
-            $table->string('year')->nullable();
+            $table->string('year_level')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at');
             $table->rememberToken();

@@ -35,7 +35,7 @@ class User extends Authenticatable
         'number',
         'course',
         'campus',
-        'year',
+        'year_level',
         'avatar'
     ];
 

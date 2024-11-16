@@ -6,16 +6,25 @@
             <h2 class="text-2xl">Welcome back!</h2>
         </div>
 
+        @if(session('error'))
+            <div class="bg-red-400 p-2 rounded">
+                <span class="text-red-700 font-semibold"> {{ session('error') }} </span>
+            </div>
+        @endif
+
         <form wire:submit.prevent="submit" class="flex flex-col">
             <x-label-input label="Email">
                 <input
                     type="email"
                     wire:model="email"
+                    name="email"
                     placeholder="Enter email address"
                     class="input input-bordered w-full rounded-md"
                     required
                 />
-                @error('email') <x-slot:error> {{ $message }} </x-slot:error> @enderror
+                @error('email')
+                    <x-slot:error> {{ $message }} </x-slot:error>
+                @enderror
             </x-label-input>
 
             <x-label-input label="Password">
@@ -26,7 +35,9 @@
                     class="input input-bordered w-full rounded-md"
                     required
                 />
-                @error('password') <x-slot:error> {{ $message }} </x-slot:error> @enderror
+                @error('password')
+                    <x-slot:error> {{ $message }} </x-slot:error>
+                @enderror
             </x-label-input>
 
             <div class="flex justify-between text-sm my-5">

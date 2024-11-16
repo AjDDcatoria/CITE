@@ -71,29 +71,15 @@
                             @enderror
                         </x-label-input>
                         <x-label-input label="Gender">
-                            <x-select wire:model="gender" name="gender" class="select select-bordered w-full">
-                                <option disabled>Select an option</option>
+                            <select wire:model="gender" name="gender" class="select select-bordered w-full">
+                                <option>Select an option</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
-                            </x-select>
+                            </select>
                             @error('gender')
                                 <x-slot:error> {{ $message }} </x-slot:error>
                             @enderror
                         </x-label-input>
-                        <x-label-input label="Year">
-                            <x-select wire:model="year_level" name="year_level" class="select select-bordered w-full">
-                                <option value="" disabled>Select an option</option>
-                                <option value="1">1st Year</option>
-                                <option value="2">2nd Year</option>
-                                <option value="3">3rd Year</option>
-                                <option value="4">4th Year</option>
-                            </x-select>
-                            @error('year')
-                                <x-slot:error> {{ $message }} </x-slot:error>
-                            @enderror
-                        </x-label-input>
-
-
                     </div>
 
                     <div class="flex gap-3 flex-wrap sm:flex-nowrap">
@@ -104,12 +90,16 @@
                                 <x-slot:error> {{ $message }} </x-slot:error>
                             @enderror
                         </x-label-input>
-
-                        <x-label-input label="Phone number">
-                            <input type="number" wire:model="number" name="number"
-                                placeholder="e.g +63987615241 or 0987676545" class="input input-bordered w-full" />
-                            @error('number')
-                                <x-slot:error> {{ $message }} </x-slot:error>
+                        <x-label-input label="Year">
+                            <select wire:model="year_level" name="year_level" class="select select-bordered w-full">
+                                <option value="">Select an option</option>
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                            </select>
+                            @error('year')
+                            <x-slot:error> {{ $message }} </x-slot:error>
                             @enderror
                         </x-label-input>
                     </div>
@@ -163,6 +153,11 @@
                             @error('suffix')
                                 <x-slot:error> {{ $message }} </x-slot:error>
                             @enderror
+                        </x-label-input>
+
+                        <x-label-input label="Phone number">
+                            <input type="number" wire:model="number" name="number" placeholder="e.g +63987615241 or 0987676545" class="input input-bordered w-full" />
+                            @error('number')<x-slot:error> {{ $message }} </x-slot:error> @enderror
                         </x-label-input>
                     </div>
 

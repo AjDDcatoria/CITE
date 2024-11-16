@@ -16,7 +16,7 @@ class Login extends Component
         'password' => 'required|string|min:8'
     ];
 
-    public function submit(LoginService $service): Void
+    public function submit(LoginService $service): void
     {
         $data = $this->validate();
 
