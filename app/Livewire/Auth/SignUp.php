@@ -34,7 +34,7 @@ class SignUp extends Component
         'firstname' => 'required|string|max:255',
         'lastname' => 'required|string|max:255',
         'suffix' => 'nullable|string|max:50',
-        'gender' => 'required|string|in:male,female',
+//        'gender' => 'required|string|in:male,female',
     ];
 
     protected array $messages = [
@@ -59,6 +59,7 @@ class SignUp extends Component
     public function submit(UserService $service): void
     {
         $data = $this->validate();
+
 
         $service->createUser($data);
 

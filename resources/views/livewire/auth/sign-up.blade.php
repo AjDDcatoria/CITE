@@ -66,13 +66,13 @@
                         </x-label-input>
 
                         <x-label-input label="Year">
-                            <select class="select select-bordered w-full">
+                            <select wire:model="year" class="select select-bordered w-full">
                                 <option>Select year</option>
-                                <option>First year</option>
-                                <option>Second year</option>
-                                <option>Third year</option>
-                                <option>Fourth year</option>
-                                <option>Fifth year</option>
+                                <option value="1">First year</option>
+                                <option value="2">Second year</option>
+                                <option value="3">Third year</option>
+                                <option value="4">Fourth year</option>
+                                <option value="5">Fifth year</option>
                             </select>
                             @error('year') <x-slot:error> {{ $message }} </x-slot:error> @enderror
                         </x-label-input>
@@ -160,14 +160,14 @@
                             @error('suffix') <x-slot:error> {{ $message }} </x-slot:error>  @enderror
                         </x-label-input>
 
-                        <x-label-input label="Gender">
-                            <select wire:model="gender" class="select select-bordered w-full">
-                                <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                            @error('gender') <x-slot:error> {{ $message }} </x-slot:error>  @enderror
-                        </x-label-input>
+{{--                        <x-label-input label="Gender">--}}
+{{--                            <select wire:model="gender" class="select select-bordered w-full">--}}
+{{--                                <option value="">Select Gender</option>--}}
+{{--                                <option value="male">Male</option>--}}
+{{--                                <option value="female">Female</option>--}}
+{{--                            </select>--}}
+{{--                            @error('gender') <x-slot:error> {{ $message }} </x-slot:error>  @enderror--}}
+{{--                        </x-label-input>--}}
                     </div>
 
                 </div >

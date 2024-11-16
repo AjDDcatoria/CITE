@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Services\auth\LoginService;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -15,10 +16,11 @@ class Login extends Component
         'password' => 'required|string|min:8'
     ];
 
-    public function submit(): Void
+    public function submit(LoginService $service): Void
     {
-        $this->validate();
+        $data = $this->validate();
 
+        $service->authenticate($data);
     }
 
     public function render(): View
