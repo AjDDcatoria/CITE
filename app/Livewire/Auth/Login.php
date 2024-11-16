@@ -2,26 +2,26 @@
 
 namespace App\Livewire\Auth;
 
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Login extends Component
 {
-    public $email;
-    public $password;
+    public string $email;
+    public string $password;
 
-    protected $rules = [
+    protected array $rules = [
         'email' => 'required|email',
         'password' => 'required|string|min:8'
     ];
 
-    public function submit()
+    public function submit(): Void
     {
         $this->validate();
 
-        dd($this->email,$this->password);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.auth.login');
     }
