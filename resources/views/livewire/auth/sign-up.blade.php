@@ -1,6 +1,5 @@
-<main class="h-dvh flex justify-center text-gray-500 p-5 overflow-auto">
-    <div class="max-w-[60rem] w-full h-fit shadow-lg px-5 py-8 rounded-lg border">
-
+<main class="h-dvh flex items-center justify-center bg-gray-100 p-5">
+    <div class="max-w-[60rem] w-full shadow-lg px-5 py-10 text-gray-600  rounded-lg border bg-white">
         <div>
             <ul class="steps w-full">
                 <li class="step {{ $currentStep >= 0 ? 'step-primary' : ''}}" >Account</li>
@@ -67,14 +66,13 @@
                         </x-label-input>
 
                         <x-label-input label="Year">
-                            <select wire:model="year" class="select select-bordered w-full">
-                                <option value="">Select year</option>
-                                <option value="1">First year</option>
-                                <option value="2">Second year</option>
-                                <option value="3">Third year</option>
-                                <option value="4">Fourth year</option>
-                                <option value="5">Fifth year</option>
-                                <option value="gs">Graduate studies</option>
+                            <select class="select select-bordered w-full">
+                                <option>Select year</option>
+                                <option>First year</option>
+                                <option>Second year</option>
+                                <option>Third year</option>
+                                <option>Fourth year</option>
+                                <option>Fifth year</option>
                             </select>
                             @error('year') <x-slot:error> {{ $message }} </x-slot:error> @enderror
                         </x-label-input>
