@@ -1,8 +1,8 @@
-<main class="h-dvh flex items-center justify-center text-gray-500 p-5">
-    <div class="max-w-[30rem] w-full shadow-lg px-5 py-10 rounded-lg border">
+<main class="h-dvh flex items-center justify-center text-gray-500 p-5 bg-gray-100">
+    <div class="max-w-[30rem] w-full shadow-lg px-5 py-10 rounded-lg border bg-white">
 
         <div class="flex flex-col gap-5 items-center justify-end mb-10">
-            <img src="{{ asset('image/NEMSU.png') }}" class="h-28" />
+            <img src="{{ asset('image/NEMSU.png') }}" class="h-28" alt="NEMSU.png"/>
             <h2 class="text-2xl">Welcome back!</h2>
         </div>
 
@@ -33,7 +33,7 @@
                 <a href="#" class="link link-hover text-info font-semibold">Forgot your password?</a>
                 <p>
                     Don't have an account?
-                    <a href="#" class="link link-hover text-info font-semibold">Sign Up</a>
+                    <a href="{{ route('register') }}" class="link link-hover text-info font-semibold">Sign Up</a>
                 </p>
             </div>
 
