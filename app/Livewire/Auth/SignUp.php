@@ -11,7 +11,7 @@ class SignUp extends Component
     public string $campus;
     public string $course;
     public string $role;
-    public ?string $year = null;
+    public string $year_level;
     public string $email;
     public string $number;
     public string $password;
@@ -28,13 +28,13 @@ class SignUp extends Component
         'course' => 'required|string|in:BSCS,BSED,BSPE,BSCED,BSMID,BSFIL,BSMATH,BSES,BSBIO,BAPA,BAPS,BAENG,BAECON,BSHM,BSCE,BLAW',
         'role' => 'required|string|in:student,instructor',
         'email' => 'required|email|unique:users,email',
-        'year' => 'nullable|string',
+        'year_level' => 'nullable|string',
         'number' => 'required|size:11',
         'password' => 'required|string|min:8|confirmed',
         'firstname' => 'required|string|max:255',
         'lastname' => 'required|string|max:255',
         'suffix' => 'nullable|string|max:50',
-//        'gender' => 'required|string|in:male,female',
+       'gender' => 'required|string|in:male,female',
     ];
 
     protected array $messages = [
