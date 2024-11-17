@@ -14,7 +14,7 @@
                         New users
                     </x-nav-item>
                     <x-nav-item :route="'admin.manage.rooms'" icon='bx-home'>
-                        Mange rooms
+                        Manage rooms
                     </x-nav-item>
                 </ul>
             </x-nav-list>
