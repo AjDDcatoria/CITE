@@ -8,10 +8,9 @@
 
     <link rel="icon" href="{{ asset('image/NEMSU.png')  }}" type="image/png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
     <title>North Eastern Mindanao State University</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/sass/dashboard.scss','resources/js/app.js'])
     @livewireStyles
 </head>
 <body>

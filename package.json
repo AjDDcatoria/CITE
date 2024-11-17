@@ -26,6 +26,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@flaticon/flaticon-uicons": "^3.3.1"
+        "@flaticon/flaticon-uicons": "^3.3.1",
+        "chart.js": "^4.4.6",
+        "sass": "^1.81.0"
     }
 }

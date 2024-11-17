@@ -25,8 +25,22 @@
             </div>
         </aside>
         <div class="flex-1 bg-gray-100 flex flex-col">
-            <header class="bg-white h-14 flex items-center px-5"> Header </header>
+            <header class="bg-white h-14 flex justify-between  items-center px-5 border-b bordery-gray-200">
+                <div class="font-semibold text-xl">
+                    Hello {{ $user->role }}!
+                </div>
+                <div class="flex items-center gap-2">
+                    <label class="font-semibold">{{ $user->firstname }} {{ $user->lastname }}</label>
+                    <div class="avatar">
+                        <div class="w-10 rounded-full">
+                          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </header>
             @yield('content')
         </div>
     </div>
 </x-layouts.app>
+
+@yield('scripts')
