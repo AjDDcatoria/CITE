@@ -25,7 +25,7 @@
             </div>
         </aside>
         <div class="flex-1 bg-gray-100 flex flex-col">
-            <header class="bg-white h-14 flex justify-between  items-center px-5 border-b bordery-gray-200">
+            <header class="bg-white h-14 flex justify-between  items-center px-5 border-b border-gray-200">
                 <div class="font-semibold text-xl">
                     Hello {{ $user->role }}!
                 </div>
