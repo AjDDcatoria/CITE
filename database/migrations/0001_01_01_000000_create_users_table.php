@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('suffix')->nullable();
             $table->enum('role',['student','instructor','admin']);
             $table->string('number')->unique();
-            $table->string('course');
-            $table->string('campus');
+            $table->string('course')->nullable();
+            $table->string('campus')->nullable();
             $table->string('year_level')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at');

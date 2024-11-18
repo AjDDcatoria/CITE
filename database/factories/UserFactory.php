@@ -24,10 +24,21 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'id' => Str::uuid(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'password' => Hash::make('password'), // Default password
+            'verified' => $this->faker->boolean(50), // 80% chance of being verified
+            'firstname' => $this->faker->firstName(),
+            'lastname' => $this->faker->lastName(),
+            'gender' => $this->faker->randomElement(['male', 'female']),
+            'suffix' => $this->faker->optional()->suffix(),
+            'role' => $this->faker->randomElement(['student', 'instructor']),
+            'number' => '09' . $this->faker->unique()->numerify('#########'),
+            'course' => $this->faker->randomElement(['BSCS', 'BSED', 'BSPE','BSCED','BSMID','BAENG']),
+            'campus' => $this->faker->randomElement(['tandag', 'marihatag', 'cantilan','cagwait','tagbina','san miguel']),
+            'year_level' => $this->faker->optional()->randomElement(['1', '2', '3', '4']),
+            'avatar' => $this->faker->optional()->imageUrl(200, 200, 'people'),
+            'email_verified_at' => $this->faker->optional()->dateTimeThisYear(),
             'remember_token' => Str::random(10),
         ];
     }
