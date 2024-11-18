@@ -15,6 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => EnsureAdmin::class
         ]);
+
+        $middleware->validateCsrfTokens(except: [
+           'livewire/*'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
