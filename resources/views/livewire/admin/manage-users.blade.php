@@ -1,4 +1,4 @@
-<section id="manage-users">
+<section id="manage-users" class="!overflow-hidden">
     <div class="filters-container">
         <div class="filters">
             {{-- User filter --}}
@@ -51,23 +51,48 @@
                     <th>Status</th>
                     <th>Course</th>
                     <th>Campus</th>
-                    <th></th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach([1,2,3,4,5,6,7,8,9,10,11,12] as $count)
+                @foreach($users as $f_user)
                 <tr>
-                    <td>{{ $count  }}</td>
-                    <td>{{ $user->firstname  }} {{ $user->lastname  }}</td>
-                    <td> {{ $user->email  }} </td>
-                    <td> {{ $user->role }} </td>
-                    <td> {{ $user->verified == 1 ? 'verified' : 'request' }}  </td>
-                    <td> {{ $user->course  }} </td>
-                    <td> {{ $user->campus  }} </td>
-                    <th>menu</th>
+                    <td>{{ $loop->iteration   }}</td>
+                    <td>{{ $f_user->firstname  }} {{ $f_user->lastname  }}</td>
+                    <td> {{ $f_user->email  }} </td>
+                    <td> {{ $f_user->role }} </td>
+                    <td>
+                        @if($f_user->verified)
+                            <div class="badge bg-green-300 gap-2">
+                                verified
+                            </div>
+                        @else
+                            <div class="badge bg-red-300  gap-2">
+                                request
+                            </div>
+                        @endif
+                    </td>
+                    <td> {{ $f_user->course  }} </td>
+                    <td> {{ $f_user->campus  }} </td>
+                    <th>
+                        @if($f_user->verified)
+                            <button class="btn btn-xs w-14 rounded">Edit</button>
+                        @else
+                            <button class="btn btn-xs w-14 rounded">Verify</button>
+                        @endif
+                    </th>
                 </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr class="sticky bottom-0 bg-white z-10">
+                    <th colspan=8">
+                        <div class="join float-right">
+                            {{ $users->links('pagination-links')  }}
+                        </div>
+                    </th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </section>

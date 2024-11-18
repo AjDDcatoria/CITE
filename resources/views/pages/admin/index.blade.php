@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <div class="h-dvh flex">
+    <div class="h-dvh flex overflow-hidden">
         <aside class="h-full flex flex-col max-w-[15rem] w-full bg-black/100 text-gray-100">
             <div class="h-14 flex gap-2 items-center border-b border-gray-600 px-4 relative">
                 <img src="{{ asset('image/NEMSU.png') }}" alt="" class="h-6 w-6">
@@ -19,11 +19,11 @@
                 </ul>
             </x-nav-list>
             <div class="py-3 px-2">
-                <livewire:auth.logout-btn />
+                <livewire:auth.logout-btn/>
             </div>
         </aside>
         <div class="flex-1 flex flex-col">
-            <header class="bg-white h-14 flex justify-between  items-center px-5 border-b border-gray-200">
+            <header class="bg-white py-2 flex justify-between  items-center px-5 border-b border-gray-200">
                 <div class="font-semibold text-xl">
                     Hello {{ $user->role }}!
                 </div>
