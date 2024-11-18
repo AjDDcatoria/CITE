@@ -19,9 +19,7 @@
                 </ul>
             </x-nav-list>
             <div class="py-3 px-2">
-                <button class="btn btn-neutral rounded-md w-full btn-sm">
-                    Logout
-                </button>
+                <livewire:auth.logout-btn />
             </div>
         </aside>
         <div class="flex-1 flex flex-col">
