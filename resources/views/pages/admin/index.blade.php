@@ -10,8 +10,8 @@
                     <x-nav-item :route="'admin.dashboard'" icon='bx-line-chart-down'>
                         Dashboard
                     </x-nav-item>
-                    <x-nav-item :route="'admin.new.users'" icon='bx-user-plus'>
-                        New users
+                    <x-nav-item :route="'admin.manage.users'" icon='bx-user-plus'>
+                        Manage users
                     </x-nav-item>
                     <x-nav-item :route="'admin.manage.rooms'" icon='bx-home'>
                         Manage rooms
@@ -24,7 +24,7 @@
                 </button>
             </div>
         </aside>
-        <div class="flex-1 bg-gray-100 flex flex-col">
+        <div class="flex-1 flex flex-col">
             <header class="bg-white h-14 flex justify-between  items-center px-5 border-b border-gray-200">
                 <div class="font-semibold text-xl">
                     Hello {{ $user->role }}!

@@ -14,8 +14,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/', function() { return view('pages.home');})->name('home');
 
     Route::prefix('admin')->middleware('admin')->group(function () {
-        Route::get('/',function() {return view('pages.admin.dasboard');})->name('admin.dashboard');
-        Route::get('/new-users',function() {return view('pages.admin.new-users');})->name('admin.new.users');
+        Route::get('/',function() {return view('pages.admin.dashboard');})->name('admin.dashboard');
+        Route::get('/new-users',function() {return view('pages.admin.manage-users');})->name('admin.manage.users');
         Route::get('/mange-rooms',function() {return view('pages.admin.manage-rooms');})->name('admin.manage.rooms');
     });
 });

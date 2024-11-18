@@ -1,5 +1,5 @@
 section#dashboard {
-    @apply grid gap-3 bg-white overflow-auto;
+    @apply grid gap-3 overflow-auto;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
 
