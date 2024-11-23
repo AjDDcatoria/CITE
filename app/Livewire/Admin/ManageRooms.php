@@ -10,9 +10,8 @@ use Livewire\Attributes\Rule;
 class ManageRooms extends Component
 {
     #[Rule('numeric|required|min:100|max:999')]
-    public ?int $room_number = null;
 
-    public Room $room;
+    public Room $room_model;
 
     public function render(): View
     {
@@ -26,7 +25,7 @@ class ManageRooms extends Component
         $this->validate();
 
         // Create room
-        $this->room->create([
+        Room::create([
             'room' => $this->room_number
         ]);
     }
