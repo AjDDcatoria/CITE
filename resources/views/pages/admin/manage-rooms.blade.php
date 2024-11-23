@@ -1,7 +1,7 @@
 @extends('pages.admin.index')
 
 @section('content')
-<main class="flex-1 p-5">
-    ManageRooms
-</main>
+<section id="manage-rooms">
+    <livewire:admin.manage-rooms />
+</section>
 @endsection

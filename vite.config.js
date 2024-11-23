@@ -8,6 +8,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/sass/dashboard.scss",
                 "resources/sass/manage-users.scss",
+                "resources/sass/manage-rooms.scss",
                 "resources/js/app.js",
             ],
             refresh: true,
