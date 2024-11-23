@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -23,6 +24,10 @@ class ManageUsers extends Component
 
     #[Rule('nullable|string')]
     public ?string $search = null;
+
+    public string $to_verify_user_Id = '';
+    public string $to_verify_user_fullname = '';
+    public User $user_model;
 
     public function render(): View
     {
@@ -56,5 +61,21 @@ class ManageUsers extends Component
         return view('livewire.admin.manage-users', [
             'users' => $users,
         ]);
+    }
+
+    public function verify(array $v_user): void
+    {
+        $this->to_verify_user_Id = $v_user['id'];
+        $this->to_verify_user_fullname = $v_user['firstname'] . ' ' . $v_user['lastname'];
+    }
+
+    public function verify_confirm(): void
+    {
+        DB::table('users')
+            ->where('id',$this->to_verify_user_Id)
+            ->where('verified',0)
+            ->update(['verified' => 1]);
+
+        $this->reset(['to_verify_user_Id','to_verify_user_fullname']);
     }
 }

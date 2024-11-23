@@ -76,9 +76,24 @@
                     <td> {{ $f_user->campus  }} </td>
                     <th>
                         @if($f_user->verified)
-                            <button class="btn btn-xs w-14 rounded">Edit</button>
+                            <button
+                                class="btn btn-xs w-14 rounded"
+                                onclick="edit_user_modal.showModal()"
+                            >
+                                Edit
+                            </button>
                         @else
-                            <button class="btn btn-xs w-14 rounded">Verify</button>
+                            <button
+                                class="btn btn-xs w-14 rounded"
+                                wire:click="verify({{ $f_user }})"
+                                onclick="
+                                    setTimeout(()=>{
+                                        verify_modal.showModal()
+                                    },550)
+                                 "
+                            >
+                                Verify
+                            </button>
                         @endif
                     </th>
                 </tr>
@@ -95,4 +110,43 @@
             </tfoot>
         </table>
     </div>
+    {{-- Modal verify --}}
+    <dialog id="verify_modal" class="modal">
+        <div class="modal-box">
+          <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+            </button>
+          </form>
+          <h3 class="text-lg font-bold">Verify</h3>
+          <p class="py-4">
+            Are you sure you want to verify <strong>{{ $to_verify_user_fullname }}</strong> ?
+        </p>
+        <div class="modal-action">
+            <form method="dialog">
+              <button class="btn btn-error">Cancel</button>
+            </form>
+            <form method="dialog">
+                <button class="btn btn-success" wire:click='verify_confirm'>
+                    Confirm
+                </button>
+              </form>
+          </div>
+        </div>
+      </dialog>
+
+      {{-- Todo Modal edit user --}}
+      <dialog id="edit_user_modal" class="modal">
+        <div class="modal-box">
+          <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+            </button>
+          </form>
+          <h3 class="text-lg font-bold">Edit</h3>
+          <p class="py-4">
+            <strong>Soon...</strong>
+         </p>
+        </div>
+      </dialog>
 </section>
