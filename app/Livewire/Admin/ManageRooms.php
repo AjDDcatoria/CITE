@@ -26,7 +26,7 @@ class ManageRooms extends Component
         $this->validate();
 
         // Create room
-        $this->roome->create([
+        $this->room->create([
             'room' => $this->room_number
         ]);
     }
