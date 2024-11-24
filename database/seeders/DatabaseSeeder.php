@@ -19,18 +19,18 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         // ? admin account
-//        User::factory()->create([
-//            'id' => Str::uuid(),
-//            'email' => 'john@example.com',
-//            'password' => Hash::make('password'),
-//            'verified' => 1,
-//            'firstname' => 'John',
-//            'lastname' => 'Doe',
-//            'gender' => 'male',
-//            'role' => 'admin',
-//            'number' => '09876543212',
-//            'remember_token' => Str::random(10),
-//        ]);
-        User::factory()->count(50)->create();
+       User::factory()->create([
+           'id' => Str::uuid(),
+           'email' => 'john@example.com',
+           'password' => Hash::make('password'),
+           'verified' => 1,
+           'firstname' => 'John',
+           'lastname' => 'Doe',
+           'gender' => 'male',
+           'role' => 'admin',
+           'number' => '09876543212',
+           'remember_token' => Str::random(10),
+       ]);
+        User::factory()->count(100)->create();
     }
 }

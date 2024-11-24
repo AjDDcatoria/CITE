@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static create(int[]|null[] $array)
@@ -10,4 +11,9 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     protected $fillable = ['room','used'];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class,'used','id');
+    }
 }

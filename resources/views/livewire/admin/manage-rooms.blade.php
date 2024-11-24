@@ -1,4 +1,5 @@
 <div>
+    @if ($user->role == 'admin')
     <div class="flex items-center gap-3 mb-4">
         <div class="lg:tooltip !tooltip-right" data-tip="Add room">
             <button class="btn btn-neutral btn-sm rounded" onclick="create_room_modal.showModal()">
@@ -6,14 +7,29 @@
             </button>
         </div>
     </div>
+    @else
+    <h2 class="text-2xl mb-3 font-bold">
+      CITE
+    </h2>
+    @endif
     <div id="room-grid">
         @foreach ($rooms as $room)
             <div class="card-item">
                 <div class="card-header">
                     <div>Room</div>
-                    <div class="icon bg-gray-300">
-                        <i class='bx bxs-home text-gray-600' ></i>
-                    </div>
+                    @if ($user->role === 'admin' || $user->role === 'instructor')
+                        <div class="lg:tooltip !tooltip-bottom" data-tip="{{
+                            $room->used ? $room->used === $user->id ? 'Out' : 'Already used!' : 'Use room'
+                        }}">
+                            <button wire:click="useRoom({{ $room->id }})" class="btn btn-sm rounded bg-gray-300 !h-11">
+                                <i class='bx bxs-home text-gray-600 text-2xl' ></i>
+                            </button>
+                        </div>
+                    @else
+                        <div class="icon bg-gray-300">
+                            <i class='bx bxs-home text-gray-600' ></i>
+                        </div>
+                    @endif
                 </div>
                 <div class="content">
                     <h2>{{ $room->room }}</h2>
@@ -27,7 +43,7 @@
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                                 alt="Tailwind-CSS-Avatar-component" />
                             </div>
-                            <span class="!text-gray-500 text-xs !font-bold">Aj DDcatoria</span>
+                            <span class="!text-gray-500 text-xs !font-bold">{{ $room->user->firstname . ' ' . $room->user->lastname}}</span>
                         </div>
                     @else
                         <i class='bx bx-circle text-xs text-gray-400'></i>

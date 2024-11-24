@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('room')->unique();
             $table->uuid('used')->nullable();
             $table->timestamps();
+
+            $table->foreign('used')->references('id')->on('users');
         });
     }
 
